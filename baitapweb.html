@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bảng tin thời sự</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .news-box {
+      background-color: #fff;
+      max-width: 900px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .news-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .news-table td {
+      border: none; /* Xóa toàn bộ border */
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .news-list li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .news-list li:last-child {
+      border-bottom: none;
+    }
+
+    .news-list a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .news-list a:hover {
+      text-decoration: underline;
+    }
+
+    .image-col {
+      text-align: center;
+      width: 200px;
+    }
+
+    .image-col img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #444;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="news-box">
+    <h3 class="section-title">THỜI SỰ</h3>
+    <table class="news-table">
+      <tr>
+        <!-- Cột bên trái -->
+        <td class="news-col">
+          <ul class="news-list">
+            <li><a href="#">Kinh hoàng ô tô "điên" tông vào nhiều người đang đứng chờ đèn đỏ ở Hà Nội</a></li>
+            <li><a href="#">CSGT kiểm tra ô tô đang dừng khẩn cấp, phát hiện nữ tài xế khó thở</a></li>
+          </ul>
+        </td>
+
+        <!-- Cột hình ảnh -->
+        <td class="image-col">
+          <img src="https://bcp.cdnchinhphu.vn/Uploaded/tranducmanh/2021_02_14/111HN.jpg" alt="Ảnh minh họa">
+          <p class="caption">Hà Nội: Người đàn ông tử vong, xét nghiệm dương tính với SARS-CoV-2</p>
+        </td>
+
+        <!-- Cột bên phải -->
+        <td class="news-col">
+          <ul class="news-list">
+            <li><a href="#">Nước ngập ngang bụng người lớn, Quảng Ninh dùng xe tải quân sự đưa học sinh về</a></li>
+            <li><a href="#">Mưa lớn gây sạt lở ở nhiều nơi, người dân được sơ tán khẩn cấp</a></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
