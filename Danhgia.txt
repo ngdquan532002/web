@@ -1,0 +1,2 @@
+Sinh viên B làm bài tối ưu nhất sắp xếp theo list, ngắn gọn, hiệu quả, sinh viên C làm bài quá màu mè, dùng quá nhiều thẻ div,
+sinh viên A dùng toàn thẻ <p> trông không bắt mắt, đơn giản nhưng xấu
