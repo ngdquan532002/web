@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Ứng Phóng To Ảnh - JavaScript</title>
+    <style>
+        /* --- CSS --- */
+
+        /* Căn bản cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h2, p {
+            color: #333;
+        }
+
+        /* Định dạng cho ảnh nhỏ ban đầu */
+        .image-container {
+            display: inline-block;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #myImage {
+            max-width: 500px; /* Kích thước tối đa của ảnh nhỏ */
+            width: 100%;
+            height: auto;
+            cursor: pointer; /* Biến con trỏ thành hình bàn tay khi di chuột vào */
+            transition: transform 0.3s ease; /* Hiệu ứng mượt mà khi di chuột */
+        }
+
+        #myImage:hover {
+            transform: scale(1.03); /* Phóng to nhẹ khi di chuột qua */
+        }
+
+        /* Lớp nền đen mờ (Modal/Lightbox) - Mặc định bị ẩn */
+        .modal {
+            display: none; /* Mặc định ẩn đi */
+            position: fixed; /* Vị trí cố định so với màn hình */
+            z-index: 1000; /* Luôn nằm trên cùng */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Màu đen với độ trong suốt 85% */
+            
+            /* Dùng Flexbox để căn giữa ảnh phóng to */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ảnh được phóng to bên trong modal */
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh; /* Chiều cao tối đa là 90% chiều cao màn hình */
+            animation: zoomIn 0.5s ease-in-out; /* Hiệu ứng phóng to */
+        }
+
+        /* Định nghĩa hiệu ứng phóng to (keyframes animation) */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sử dụng javascript tạo hiệu ứng</h2>
+    <p>Click chuột vào ảnh lớn thì phóng to ảnh trên một nền đen trong suốt</p>
+    <p>Click vào nền đen thì mất đi ảnh phóng to</p>
+
+    <div class="image-container">
+        <img id="myImage" src="https://i.imgur.com/gYf2xS8.png" alt="Xe Hyundai Kona màu cam">
+    </div>
+
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // --- JAVASCRIPT ---
+
+        // Lấy các phần tử cần thiết từ HTML
+        const modal = document.getElementById("myModal");
+        const image = document.getElementById("myImage");
+        const modalImage = document.getElementById("modalImg");
+
+        // Gán sự kiện 'onclick' cho ảnh nhỏ
+        image.onclick = function() {
+            // 1. Hiển thị modal (lớp nền đen)
+            // Thay đổi 'display' từ 'none' thành 'flex' để nó hiện ra
+            // (dùng 'flex' vì đã thiết lập ở CSS để căn giữa)
+            modal.style.display = "flex";
+            
+            // 2. Lấy đường dẫn (src) của ảnh nhỏ gán cho ảnh phóng to
+            modalImage.src = this.src;
+        }
+
+        // Gán sự kiện 'onclick' cho chính modal (lớp nền đen)
+        modal.onclick = function() {
+            // Ẩn modal đi bằng cách đổi 'display' về 'none'
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
